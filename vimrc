@@ -19,15 +19,33 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 set nobackup		" do not keep a backup file, use versions instead
 
 set history=50		" keep 50 lines of command line history
+
+set encoding=utf-8
+set scrolloff=5 " number of screen lines above and below cursor
+set showmode    " show current mode in the last line
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set laststatus=2
+set relativenumber
+
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
