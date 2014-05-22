@@ -18,6 +18,7 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+let mapleader = ","
 
 set tabstop=4
 set shiftwidth=4
@@ -36,7 +37,17 @@ set scrolloff=5 " number of screen lines above and below cursor
 set showmode    " show current mode in the last line
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+set list
+set listchars=tab:▸\ ,eol:¬
+
 set hidden
 set wildmenu
 set wildmode=list:longest
@@ -46,6 +57,11 @@ set ttyfast
 set laststatus=2
 set relativenumber
 
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -62,12 +78,27 @@ if has('mouse')
   set mouse=a
 endif
 
+set incsearch		" do incremental searching
+set showmatch
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
+  "invisible character colors
+  highlight NonText guifg=#4a4a59
+  highlight SpecialKey guifg=#4a4a59
 endif
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -84,6 +115,8 @@ if has("autocmd")
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+
+  au FocusLost * :wa
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -111,8 +144,14 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" Show line numbers
-set number
-
 command W w !sudo tee % > /dev/null
+
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+nnoremap <leader>w <C-w>v<C-w>l
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
