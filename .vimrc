@@ -86,19 +86,13 @@ set showmatch
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
+  set background=dark
+  set t_Co=16
+  colorscheme solarized
   "invisible character colors
   highlight NonText guifg=#4a4a59
   highlight SpecialKey guifg=#4a4a59
 endif
-
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
