@@ -1,19 +1,5 @@
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-
 execute pathogen#infect()
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -44,7 +30,6 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
 set list
 set listchars=tab:▸\ ,eol:¬
 
@@ -81,6 +66,8 @@ endif
 set incsearch		" do incremental searching
 set showmatch
 
+call togglebg#map("")
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -88,8 +75,10 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
   set background=dark
   set t_Co=16
+  let g:solarized_bold=0
+  let g:solarized_termcolors=16
   colorscheme solarized
-  "invisible character colors
+  " invisible character colors
   highlight NonText guifg=#4a4a59
   highlight SpecialKey guifg=#4a4a59
 endif
