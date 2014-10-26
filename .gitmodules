@@ -7,3 +7,6 @@
 [submodule "helpers/gnome-terminal-solarized"]
 	path = helpers/gnome-terminal-solarized
 	url = git://github.com/Anthony25/gnome-terminal-colors-solarized
+[submodule "helpers/dircolors-solarized"]
+	path = helpers/dircolors-solarized
+	url = git://github.com/seebi/dircolors-solarized
