@@ -28,7 +28,7 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 set wrap
-set textwidth=79
+set textwidth=76
 set formatoptions=qrn1
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -96,8 +96,8 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  " For all text files set 'textwidth' to 76 characters.
+  autocmd FileType text setlocal textwidth=76
 
   au FocusLost * :wa
 
