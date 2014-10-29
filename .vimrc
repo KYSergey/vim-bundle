@@ -28,7 +28,7 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 set wrap
-set textwidth=75
+set textwidth=78
 set formatoptions=qrn1
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -40,7 +40,6 @@ set visualbell
 set cursorline
 set ttyfast
 set laststatus=2
-set relativenumber
 
 nnoremap / /\v
 vnoremap / /\v
@@ -96,8 +95,8 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 75 characters.
-  autocmd FileType text setlocal textwidth=75
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
 
   au FocusLost * :wa
 
@@ -132,6 +131,8 @@ command W w !sudo tee % > /dev/null
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 nnoremap <leader>w <C-w>v<C-w>l
+nn <leader>nn :set nu!<CR>
+nn <leader>rn :set rnu!<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j

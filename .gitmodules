@@ -10,3 +10,6 @@
 [submodule "helpers/dircolors-solarized"]
 	path = helpers/dircolors-solarized
 	url = git://github.com/seebi/dircolors-solarized
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
