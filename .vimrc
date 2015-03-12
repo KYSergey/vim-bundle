@@ -6,9 +6,9 @@ execute pathogen#infect()
 set nocompatible
 let mapleader = ","
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " allow backspacing over everything in insert mode
@@ -23,6 +23,8 @@ set scrolloff=5 " number of screen lines above and below cursor
 set showmode    " show current mode in the last line
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
+set number
+set relativenumber
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
@@ -133,9 +135,15 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>w <C-w>v<C-w>l
 nn <leader>nn :set nu!<CR>
 nn <leader>rn :set rnu!<CR>
+nn <leader>ntt :NERDTreeToggle<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+if has("win32") || has("win64")
+  set directory=$TMP
+else
+  set directory=/tmp
+end
