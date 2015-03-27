@@ -4,6 +4,7 @@ execute pathogen#infect()
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+lan mes en_US
 let mapleader = ","
 
 set tabstop=2
