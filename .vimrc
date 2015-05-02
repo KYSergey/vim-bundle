@@ -7,6 +7,20 @@ set nocompatible
 lan mes en_US.UTF-8
 let mapleader = ","
 
+" Configure plugins
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" closetag
+:let g:closetag_html_style=1
+" end configure plugins
+
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -78,7 +92,10 @@ if &t_Co > 2 || has("gui_running")
   set background=dark
   set t_Co=16
   let g:solarized_bold=0
+  let g:solarized_termtrans=1
   let g:solarized_termcolors=16
+  let g:solarized_contrast="high"
+  let g:solarized_visibility="high"
   colorscheme solarized
   " invisible character colors
   highlight NonText guifg=#4a4a59
