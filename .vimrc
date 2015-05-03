@@ -7,20 +7,6 @@ set nocompatible
 lan mes en_US.UTF-8
 let mapleader = ","
 
-" Configure plugins
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" closetag
-:let g:closetag_html_style=1
-" end configure plugins
-
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -45,10 +31,11 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 set wrap
-set textwidth=78
+set textwidth=79
+set colorcolumn=80
 set formatoptions=qrn1
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=trail:·,tab:»\ 
 
 set hidden
 set wildmenu
@@ -90,12 +77,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=dark
-  set t_Co=16
-  let g:solarized_bold=0
-  let g:solarized_termtrans=1
-  let g:solarized_termcolors=16
-  let g:solarized_contrast="high"
-  let g:solarized_visibility="high"
+  set t_Co=256
   colorscheme solarized
   " invisible character colors
   highlight NonText guifg=#4a4a59
@@ -115,8 +97,8 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  " For all text files set 'textwidth' to 79 characters.
+  autocmd FileType text setlocal textwidth=79
 
   au FocusLost * :wa
 
@@ -154,6 +136,7 @@ nnoremap <leader>w <C-w>v<C-w>l
 nn <leader>nn :set nu!<CR>
 nn <leader>rn :set rnu!<CR>
 nn <leader>ntt :NERDTreeToggle<CR>
+nn <leader>gt :GundoToggle<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -165,3 +148,20 @@ if has("win32") || has("win64")
 else
   set directory=/tmp
 end
+
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+" Configure plugins
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" closetag
+let g:closetag_html_style=1
+" end configure plugins
+
