@@ -191,5 +191,10 @@ let g:airline_symbols.linenr = '␊'
 let g:airline_symbols.branch = '☣'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
+
+" indent line
+"︙
+let g:indentLine_char = '┊'
+
 " end configure plugins
 
