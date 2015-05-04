@@ -35,7 +35,7 @@ set textwidth=79
 set colorcolumn=80
 set formatoptions=qrn1
 set list
-set listchars=trail:·,tab:»\ 
+set listchars=trail:·,tab:»\ ,
 
 set hidden
 set wildmenu
@@ -77,7 +77,9 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=dark
-  set t_Co=256
+  set t_Co=16
+  let g:solarized_termcolors=16
+  let g:solarized_termtrans=1
   colorscheme solarized
   " invisible character colors
   highlight NonText guifg=#4a4a59
@@ -125,7 +127,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+      \ | wincmd p | diffthis
 endif
 
 command W w !sudo tee % > /dev/null
@@ -149,8 +151,6 @@ else
   set directory=/tmp
 end
 
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
 " Configure plugins
 " syntastic
 set statusline+=%#warningmsg#
@@ -161,7 +161,35 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
 " closetag
 let g:closetag_html_style=1
+
+" airline
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.branch = '⛕ ☠ ♆ ☣'
+let g:airline_symbols.branch = '☣'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
 " end configure plugins
 
