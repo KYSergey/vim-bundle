@@ -139,6 +139,7 @@ nn <leader>nn :set nu!<CR>
 nn <leader>rn :set rnu!<CR>
 nn <leader>ntt :NERDTreeToggle<CR>
 nn <leader>gt :GundoToggle<CR>
+nn <leader>pp :set paste!<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -159,8 +160,9 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
 
 " closetag
 let g:closetag_html_style=1
